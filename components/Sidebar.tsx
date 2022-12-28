@@ -6,6 +6,9 @@ import GoogleLogin from "react-google-login";
 import { AiFillHome, AiOutlineMenu } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
 import { ImCancelCircle } from "react-icons/im";
+import Discover from "../components/Discover";
+import SuggestedAccounts from "../components/SuggestedAccounts";
+import Footer from "../components/Footer";
 
 function Sidebar() {
   const [showSidebar, setShowSidebar] = useState<Boolean>(true);
@@ -20,7 +23,10 @@ function Sidebar() {
   const userProfile = false;
   return (
     <div>
-      <div className="" onClick={() => setShowSidebar((prev) => !prev)}>
+      <div
+        className="block xl:hidden m-2 ml-4 mt-3 text-xl"
+        onClick={() => setShowSidebar((prev) => !prev)}
+      >
         {showSidebar ? <ImCancelCircle /> : <AiOutlineMenu />}
       </div>
       {showSidebar && (
@@ -62,6 +68,9 @@ function Sidebar() {
               </div>
             </div>
           )}
+          <Discover></Discover>
+          <SuggestedAccounts></SuggestedAccounts>
+          <Footer></Footer>
         </div>
       )}
     </div>
