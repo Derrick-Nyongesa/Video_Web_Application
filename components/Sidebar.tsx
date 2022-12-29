@@ -9,9 +9,12 @@ import { ImCancelCircle } from "react-icons/im";
 import Discover from "../components/Discover";
 import SuggestedAccounts from "../components/SuggestedAccounts";
 import Footer from "../components/Footer";
+import useAuthStore from "../store/authStore";
 
 function Sidebar() {
   const [showSidebar, setShowSidebar] = useState<Boolean>(true);
+
+  const { fetchAllUsers, allUsers }: any = useAuthStore();
 
   const normalLink =
     "flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold rounded";
@@ -69,7 +72,10 @@ function Sidebar() {
             </div>
           )} */}
           <Discover></Discover>
-          <SuggestedAccounts></SuggestedAccounts>
+          <SuggestedAccounts
+            fetchAllUsers={fetchAllUsers}
+            allUsers={allUsers}
+          ></SuggestedAccounts>
           <Footer></Footer>
         </div>
       )}
