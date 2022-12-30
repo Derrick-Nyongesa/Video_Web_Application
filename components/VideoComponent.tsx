@@ -58,8 +58,8 @@ const VideoComponent: NextPage<IProps> = ({ post }) => {
                   {post.postedBy.userName}{" "}
                   <GoVerified className="text-blue-400 text-md"></GoVerified>
                 </p>
-                <p className="capitalize font-medium text-xs text-gray-500 hidden md:block">
-                  {post.postedBy.userName}
+                <p className="capitalize font-medium text-xs _name hidden md:block">
+                  @{post.postedBy.userName}
                 </p>
               </div>
             </Link>
