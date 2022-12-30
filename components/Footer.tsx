@@ -14,15 +14,15 @@ const List = ({ items, mt }: { items: string[]; mt: boolean }) => (
     ))}
   </div>
 );
-function Footer() {
+const Footer: NextPage = () => {
   return (
     <div className="mt-6 hidden xl:block">
       <List items={footerList1} mt={false} />
       <List items={footerList2} mt />
       <List items={footerList3} mt />
-      <p className="text-gray-400 text-sm mt-5">© 2023 TikTok-Clone</p>
+      <p className="  mt-5">©2023 JINX Video Web Application</p>
     </div>
   );
-}
+};
 
 export default Footer;

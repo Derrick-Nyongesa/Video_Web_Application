@@ -85,3 +85,7 @@ a {
 ._text_ {
   font-weight: bold;
 }
+
+._name {
+  color: #ea384d;
+}

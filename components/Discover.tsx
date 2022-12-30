@@ -7,7 +7,7 @@ function Discover() {
   const router = useRouter();
   const { topic } = router.query;
   const activeTopicStyle =
-    "xl:border-2 hover:bg-primary xl:border-[#F51997] px-3 py-2 rounded xl:rounded-full flex items-center gap-2 justify-center cursor-pointer text-[#F51997]";
+    "xl:border-2 hover:bg-primary xl:border-[#D31027] px-3 py-2 rounded xl:rounded-full flex items-center gap-2 justify-center cursor-pointer text-[#EA384D]";
   const topicStyle =
     "xl:border-2 hover:bg-primary xl:border-gray-300 px-3 py-2 rounded xl:rounded-full flex items-center gap-2 justify-center cursor-pointer text-black";
   return (
