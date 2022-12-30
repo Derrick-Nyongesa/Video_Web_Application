@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import GoogleLogin from "react-google-login";
+import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import { AiFillHome, AiOutlineMenu } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
 import { ImCancelCircle } from "react-icons/im";
@@ -10,20 +10,22 @@ import Discover from "../components/Discover";
 import SuggestedAccounts from "../components/SuggestedAccounts";
 import Footer from "../components/Footer";
 import useAuthStore from "../store/authStore";
+import { createOrGetUser } from "../utils/index";
 
 function Sidebar() {
   const [showSidebar, setShowSidebar] = useState<Boolean>(true);
 
   const { fetchAllUsers, allUsers }: any = useAuthStore();
 
+  const { userProfile, addUser, removeUser } = useAuthStore();
+
   const normalLink =
     "flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold rounded";
   const activeLink =
-    "flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#F51997] rounded";
+    "flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#D31027] rounded";
 
   const { pathname } = useRouter();
 
-  const userProfile = false;
   return (
     <div>
       <div
@@ -40,19 +42,22 @@ function Sidebar() {
                 <p className="text-2xl">
                   <AiFillHome></AiFillHome>
                 </p>
-                <span className="capitalize text-xl hidden xl:block">
-                  For You
-                </span>
+                <span className="capitalize text-xl hidden xl:block">HOME</span>
               </div>
             </Link>
           </div>
-          {/* {!userProfile && (
+          {!userProfile && (
             <div className="px-2 py-4 hidden xl:block">
-              <p className="text-gray-400">
-                Log in to Like and Comment on videos
+              <p className="_text_">
+                Log in to Upload, Like and Comment on videos
               </p>
-              <div className="pr-4">
+              <br />
+              <div className="pr-4 ">
                 <GoogleLogin
+                  onSuccess={(response) => createOrGetUser(response, addUser)}
+                  onError={() => console.log("Error")}
+                ></GoogleLogin>
+                {/* <GoogleLogin
                   clientId=""
                   onSuccess={() => {}}
                   onFailure={() => {}}
@@ -67,10 +72,10 @@ function Sidebar() {
                       Log In
                     </button>
                   )}
-                ></GoogleLogin>
+                ></GoogleLogin> */}
               </div>
             </div>
-          )} */}
+          )}
           <Discover></Discover>
           <SuggestedAccounts
             fetchAllUsers={fetchAllUsers}
