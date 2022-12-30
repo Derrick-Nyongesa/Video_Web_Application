@@ -18,19 +18,66 @@ a {
   box-sizing: border-box;
 }
 
-.videos::-webkit-scrollbar {
+/* .videos::-webkit-scrollbar {
   width: 0px;
-}
+} */
 
 ::-webkit-scrollbar {
   width: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(237, 237, 237);
+  background: -webkit-linear-gradient(
+    to right,
+    #ea384d,
+    #d31027
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ea384d,
+    #d31027
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   border-radius: 40px;
 }
 
 ::-webkit-scrollbar-track {
   background-color: transparent;
+}
+
+._searchBar {
+  border-color: rgb(134, 134, 134);
+  color: #ea384d;
+}
+
+._searchIcon {
+  color: #ea384d;
+}
+
+._button {
+  background: -webkit-linear-gradient(
+    to right,
+    #ea384d,
+    #d31027
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ea384d,
+    #d31027
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+}
+
+._logoutBtn {
+  background-color: #fff;
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 31px;
+  height: 50px;
+  width: 50px;
+  box-shadow: 0 2px 4px darkslategray;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
