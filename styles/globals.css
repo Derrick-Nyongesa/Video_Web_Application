@@ -89,3 +89,19 @@ a {
 ._name {
   color: #ea384d;
 }
+
+._comments {
+  margin-left: 63px;
+}
+
+._goBack {
+  margin-left: 20px;
+  margin-top: 20px;
+  color: #ea384d;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+._goBack:hover {
+  text-decoration: none;
+}
