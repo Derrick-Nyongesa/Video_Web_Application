@@ -62,7 +62,7 @@ function Navbar() {
         </form>
       </div>
       <div>
-        {userProfile ? (
+        {user ? (
           <div className="flex gap-5 md:gap-10">
             <Link href="/upload">
               <button className=" text-white px-2 md:px-4 text-md font-semibold flex items-center gap-2 _button">
@@ -70,12 +70,12 @@ function Navbar() {
                 <span className="hidden md:block ">Upload Video </span>
               </button>
             </Link>
-            {userProfile.image && (
-              <Link href={`/`}>
+            {user.image && (
+              <Link href={`/profile/${user._id}`}>
                 <div>
                   <Image
                     className="rounded-full cursor-pointer"
-                    src={userProfile.image}
+                    src={user.image}
                     alt="user"
                     width={40}
                     height={40}
