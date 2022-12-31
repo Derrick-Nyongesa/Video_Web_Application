@@ -130,3 +130,18 @@ button:hover,
 a:hover {
   opacity: 0.7;
 }
+
+._detailsLink {
+  border: solid 2px rgb(134, 134, 134);
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  padding: 5px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+._detailsLink:hover {
+  background-color: rgb(134, 134, 134);
+  color: #fff;
+}

@@ -31,10 +31,6 @@ const Comments = ({
   const { allUsers, userProfile }: any = useAuthStore();
   return (
     <div>
-      <div className="_comments">
-        <p className="text-md font-semibold ">{comments?.length || 0}</p>
-      </div>
-
       <div className="border-t-2 border-gray-200 pt-4 px-10 mt-4 bg-[#F8F8F8] border-b-2 lg:pb-0 pb-[100px]">
         <div className="overflow-scroll lg:h-[357px]">
           {comments?.length > 0 ? (

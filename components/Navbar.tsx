@@ -60,7 +60,7 @@ function Navbar() {
         {userProfile ? (
           <div className="flex gap-5 md:gap-10">
             <Link href="/upload">
-              <button className=" px-2 md:px-4 text-md font-semibold flex items-center gap-2 _button">
+              <button className=" text-white px-2 md:px-4 text-md font-semibold flex items-center gap-2 _button">
                 <IoMdAdd className="text-xl" />{" "}
                 <span className="hidden md:block ">Upload Video </span>
               </button>
