@@ -3,6 +3,7 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  // hj
   reactStrictMode: true,
   images: {
     domains: [
