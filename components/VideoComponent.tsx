@@ -47,7 +47,7 @@ const VideoComponent: NextPage<IProps> = ({
       <div>
         <div className="flex gap-3 p-2 cursor-pointer font-semibold rounded ">
           <div className="md:w-16 md:h-16 w-10 h-10">
-            <Link href="/">
+            <Link href={`/profile/${postedBy?._id}`} key={postedBy._id}>
               <>
                 <Image
                   width={62}
@@ -61,8 +61,8 @@ const VideoComponent: NextPage<IProps> = ({
             </Link>
           </div>
           <div>
-            <Link href="/">
-              <div className="flex items-center gap-2">
+            <Link href={`/profile/${postedBy?._id}`} key={postedBy._id}>
+              <div className="flex items-center gap-2 hover:bg-primary">
                 <p className="flex gap-2 items-center md:text-md font-bold text-primary capitalize">
                   {postedBy.userName}{" "}
                   <GoVerified className="text-blue-400 text-md" />

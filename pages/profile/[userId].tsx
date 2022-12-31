@@ -6,6 +6,7 @@ import VideoComponent from "../../components/VideoComponent";
 import NoResults from "../../components/NoResults";
 import { IUser, Video } from "../types";
 import { BASE_URL } from "../../utils";
+import { BsFillCollectionPlayFill } from "react-icons/bs";
 
 interface IProps {
   data: {
@@ -50,13 +51,29 @@ function Profile({ data }: IProps) {
         </div>
 
         <div>
-          <div className="text-md md:text-2xl font-bold tracking-wider flex gap-2 items-center justify-center lowercase">
-            <span>{user.userName.replace(/\s+/g, "")} </span>
+          <div className="text-md md:text-2xl font-bold tracking-wider flex gap-2 items-center justify-center capitalize">
+            <span>{user.userName} </span>
             <GoVerified className="text-blue-400 md:text-xl text-md" />
           </div>
-          <p className="text-sm font-medium"> {user.userName}</p>
+          <p className="text-sm font-medium lowercase _name italic">
+            {" "}
+            @{user.userName.replace(/\s+/g, "")}
+          </p>
+          <div>
+            <div className="flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-gray-500 rounded">
+              <p className="text-2xl">
+                <BsFillCollectionPlayFill></BsFillCollectionPlayFill>
+              </p>
+              <span className="capitalize text-xl ">
+                {videosList?.length || 0} Videos
+              </span>
+            </div>
+
+            <p className="_videosNo"> </p>
+          </div>
         </div>
       </div>
+
       <div>
         <div className="flex gap-10 mb-10 mt-10 border-b-2 border-gray-200 bg-white w-full">
           <p

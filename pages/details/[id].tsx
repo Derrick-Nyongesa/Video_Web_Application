@@ -129,8 +129,11 @@ const Details = ({ postDetails }: IProps) => {
               </Link>
             </div>
             <div className="lg:mt-10 mt-5">
-              <Link href={`/profile/${post.postedBy._id}`}>
-                <div className="flex gap-4 mb-4 bg-white w-full pl-10 cursor-pointer">
+              <Link
+                href={`/profile/${post.postedBy?._id}`}
+                key={post.postedBy._id}
+              >
+                <div className="flex gap-4 mb-4 bg-white w-full pl-10 cursor-pointer hover:bg-primary">
                   <Image
                     width={60}
                     height={60}

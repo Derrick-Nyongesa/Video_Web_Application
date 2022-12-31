@@ -43,7 +43,7 @@ function Search({ videos }: { videos: Video[] }) {
           {searchedAccounts.length > 0 ? (
             searchedAccounts.map((user: IUser, idx: number) => (
               <Link key={idx} href={`/profile/${user._id}`}>
-                <div className=" flex gap-3 p-2 cursor-pointer font-semibold rounded border-b-2 border-gray-200">
+                <div className=" flex gap-3 p-2 cursor-pointer font-semibold rounded border-b-2 border-gray-200 hover:bg-primary">
                   <div>
                     <Image
                       width={50}
@@ -55,11 +55,11 @@ function Search({ videos }: { videos: Video[] }) {
                   </div>
                   <div>
                     <div>
-                      <p className="flex gap-1 items-center text-lg font-bold text-primary">
+                      <p className="flex gap-1 items-center text-lg font-bold text-primary capitalize">
                         {user.userName} <GoVerified className="text-blue-400" />
                       </p>
-                      <p className="capitalize text-gray-400 text-sm">
-                        {user.userName}
+                      <p className="lowercase  text-sm _name italic">
+                        @{user.userName.replace(/\s+/g, "-")}
                       </p>
                     </div>
                   </div>
