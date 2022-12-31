@@ -8,6 +8,8 @@ import { client } from "../utils/client";
 import { SanityAssetDocument } from "@sanity/client";
 import { topics } from "../utils/constants";
 import { BASE_URL } from "../utils";
+import { AiFillHome } from "react-icons/ai";
+import Link from "next/link";
 
 function Upload() {
   const [loading, setLoading] = useState<Boolean>(false);
@@ -81,10 +83,21 @@ function Upload() {
     setCaption("");
     setTopic("");
   };
+
   return (
     <div className="flex w-full h-full absolute left-0 top-[60px] lg:top-[70px] mb-10 pt-10 lg:pt-20 bg-[#F8F8F8] justify-center">
-      <div className="bg-white rounded-lg xl:h-[80vh] flex gap-6 flex-wrap justify-center items-center p-14 pt-6">
+      <div className="bg-white rounded-lg  flex gap-6 flex-wrap justify-center items-center p-14 pt-6">
         <div>
+          <div className=" xl:pb-4">
+            <Link href="/">
+              <div className="flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#D31027] rounded">
+                <p className="text-2xl">
+                  <AiFillHome></AiFillHome>
+                </p>
+                <span className="capitalize text-xl hidden xl:block">HOME</span>
+              </div>
+            </Link>
+          </div>
           <div>
             <p className="text-2xl font-bold">Upload Video</p>
             <p className="text-md text-gray-400 mt-1">
@@ -113,7 +126,7 @@ function Upload() {
                         Up to 10 minutes <br />
                         Less than 2 GB
                       </p>
-                      <p className="bg-[#F51997] text-center mt-8 rounded text-white text-md font-medium p-2 w-52 outline-none">
+                      <p className="_button text-center mt-8 rounded text-white text-md font-medium p-2 w-52 outline-none">
                         Select file
                       </p>
                     </div>
@@ -183,7 +196,7 @@ function Upload() {
             <button
               onClick={handleDiscard}
               type="button"
-              className="border-gray-300 border-2 text-md font-medium p-2 rounded w-28 lg:w-44 outline-none"
+              className="_button_ border-2 text-md font-medium p-2 rounded w-28 lg:w-44 outline-none"
             >
               Discard
             </button>
@@ -191,7 +204,7 @@ function Upload() {
               disabled={videoAsset?.url ? false : true}
               onClick={handlePost}
               type="button"
-              className="bg-[#F51997] text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none"
+              className="_button text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none"
             >
               {savingPost ? "Posting..." : "Post"}
             </button>

@@ -13,6 +13,7 @@ import { Video } from "../types";
 import Comments from "../../components/Comments";
 import LikeButton from "../../components/LikeButton";
 import { RWebShare } from "react-web-share";
+import { AiFillHome } from "react-icons/ai";
 
 interface IProps {
   postDetails: Video;
@@ -115,9 +116,18 @@ const Details = ({ postDetails }: IProps) => {
             </div>
           </div>
           <div className="relative w-[1000px] md:w-[900px] lg:w-[700px]">
-            <Link href="/">
-              <p className="_goBack">Go Back</p>
-            </Link>
+            <div className=" xl:pb-4">
+              <Link href="/">
+                <div className="flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#D31027] rounded">
+                  <p className="text-2xl">
+                    <AiFillHome></AiFillHome>
+                  </p>
+                  <span className="capitalize text-xl hidden xl:block">
+                    HOME
+                  </span>
+                </div>
+              </Link>
+            </div>
             <div className="lg:mt-10 mt-5">
               <Link href={`/profile/${post.postedBy._id}`}>
                 <div className="flex gap-4 mb-4 bg-white w-full pl-10 cursor-pointer">
