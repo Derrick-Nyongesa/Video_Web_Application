@@ -105,3 +105,28 @@ a {
 ._goBack:hover {
   text-decoration: none;
 }
+
+._shareButton {
+  background: -webkit-linear-gradient(
+    to right,
+    #ea384d,
+    #d31027
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ea384d,
+    #d31027
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  width: 90%;
+  margin-left: 30px;
+  padding: 10px;
+  color: #fff;
+  margin-top: 10px;
+}
+
+button:hover,
+a:hover {
+  opacity: 0.7;
+}

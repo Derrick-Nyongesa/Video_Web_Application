@@ -12,6 +12,7 @@ import useAuthStore from "../../store/authStore";
 import { Video } from "../types";
 import Comments from "../../components/Comments";
 import LikeButton from "../../components/LikeButton";
+import { RWebShare } from "react-web-share";
 
 interface IProps {
   postDetails: Video;
@@ -151,6 +152,18 @@ const Details = ({ postDetails }: IProps) => {
                     handleDislike={() => handleLike(false)}
                   />
                 )}
+              </div>
+              <div className="_shareIcon ">
+                <RWebShare
+                  data={{
+                    text: "Web Share - GfG",
+                    url: `${post?.video?.asset.url}`,
+                    title: "Share Video?",
+                  }}
+                  onClick={() => console.log("shared successfully!")}
+                >
+                  <button className="_shareButton">Share Video</button>
+                </RWebShare>
               </div>
               <Comments
                 comment={comment}
