@@ -4,24 +4,26 @@ import { useRouter } from "next/router";
 import { GoVerified } from "react-icons/go";
 import Link from "next/link";
 import axios from "axios";
+
 import NoResults from "../../components/NoResults";
 import VideoComponent from "../../components/VideoComponent";
 import useAuthStore from "../../store/authStore";
 import { BASE_URL } from "../../utils";
 import { IUser, Video } from "../../pages/types";
 
-function Search({ videos }: { videos: Video[] }) {
-  const router = useRouter();
+const Search = ({ videos }: { videos: Video[] }) => {
   const [isAccounts, setIsAccounts] = useState(false);
-
-  const { searchTerm }: any = router.query;
   const { allUsers }: { allUsers: IUser[] } = useAuthStore();
 
-  const isVideos = !isAccounts ? "border-b-2 border-black" : "text-gray-400";
+  const router = useRouter();
+  const { searchTerm }: any = router.query;
+
   const accounts = isAccounts ? "border-b-2 border-black" : "text-gray-400";
+  const isVideos = !isAccounts ? "border-b-2 border-black" : "text-gray-400";
   const searchedAccounts = allUsers?.filter((user: IUser) =>
     user.userName.toLowerCase().includes(searchTerm)
   );
+
   return (
     <div className="w-full  ">
       <div className="flex gap-10 mb-10 border-b-2 border-gray-200 md:fixed z-50 bg-white w-full">
@@ -43,7 +45,7 @@ function Search({ videos }: { videos: Video[] }) {
           {searchedAccounts.length > 0 ? (
             searchedAccounts.map((user: IUser, idx: number) => (
               <Link key={idx} href={`/profile/${user._id}`}>
-                <div className=" flex gap-3 p-2 cursor-pointer font-semibold rounded border-b-2 border-gray-200 hover:bg-primary">
+                <div className=" flex gap-3 p-2 cursor-pointer font-semibold rounded border-b-2 border-gray-200">
                   <div>
                     <Image
                       width={50}
@@ -55,11 +57,11 @@ function Search({ videos }: { videos: Video[] }) {
                   </div>
                   <div>
                     <div>
-                      <p className="flex gap-1 items-center text-lg font-bold text-primary capitalize">
+                      <p className="flex gap-1 items-center text-lg font-bold text-primary">
                         {user.userName} <GoVerified className="text-blue-400" />
                       </p>
-                      <p className="lowercase  text-sm _name italic">
-                        @{user.userName.replace(/\s+/g, "-")}
+                      <p className="capitalize text-gray-400 text-sm">
+                        {user.userName}
                       </p>
                     </div>
                   </div>
@@ -73,8 +75,8 @@ function Search({ videos }: { videos: Video[] }) {
       ) : (
         <div className="md:mt-16 flex flex-wrap gap-6 md:justify-start ">
           {videos.length ? (
-            videos.map((video: Video, idx) => (
-              <VideoComponent post={video} key={idx} />
+            videos.map((post: Video, idx: number) => (
+              <VideoComponent post={post} key={idx} />
             ))
           ) : (
             <NoResults text={`No Video Results for ${searchTerm}`} />
@@ -83,7 +85,7 @@ function Search({ videos }: { videos: Video[] }) {
       )}
     </div>
   );
-}
+};
 
 export const getServerSideProps = async ({
   params: { searchTerm },

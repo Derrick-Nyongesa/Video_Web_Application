@@ -9,13 +9,14 @@ import Logo from "../utils/logo.png";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import { createOrGetUser } from "../utils/index";
 import useAuthStore from "../store/authStore";
-import { BsFillCollectionPlayFill } from "react-icons/bs";
+import { IUser } from "../pages/types";
 
 function Navbar() {
   const { userProfile, addUser, removeUser } = useAuthStore();
   const router = useRouter();
 
   const [searchValue, setSearchValue] = useState("");
+  const [user, setUser] = useState<IUser | null>();
 
   const handleSearch = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -24,6 +25,10 @@ function Navbar() {
       router.push(`/search/${searchValue}`);
     }
   };
+
+  useEffect(() => {
+    setUser(userProfile);
+  }, [userProfile]);
   return (
     <div className="w-full flex justify-between items-center  border-gray-200 py-2 mb-5 _navbar">
       <Link href="/">
