@@ -1,4 +1,20 @@
+# Video Web Application
+
+![developer](https://img.shields.io/badge/Developer-Derrick%20Daniel%20Nyongesa-blue)
+
+#
+
+This is a short-form video hosting service. It hosts user-submitted videos, which can range in duration from 15 seconds to 10 minutes. A user must sign in to upload, like and comment on videos.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Known Bugs
+
+- The Project upload functionality may not work properly, if you encounter an error, reload the page and try again.
+
+## Contact Information
+
+Any query? Contact me at [nyongesaderrick@gmail.com]
 
 ## Getting Started
 
